@@ -1,19 +1,22 @@
-function fizzbuzz(n) {
-  let array = [];
+function fizzBuzz(n) {
+  const result = [];
 
   for (let i = 1; i <= n; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      array.push("FizzBuzz");
+    if (i % 15 === 0) {
+      result.push("FizzBuzz");
     } else if (i % 3 === 0) {
-      array.push("Fizz");
+      result.push("Fizz");
     } else if (i % 5 === 0) {
-      array.push("Buzz");
+      result.push("Buzz");
     } else {
-      array.push(i.toString());
+      result.push(i.toString());
     }
   }
 
-  return array;
+  return result;
 }
-
-console.log(fizzbuzz(15));
+console.log(fizzBuzz(60));
+console.log(fizzBuzz(30));
+console.log(fizzBuzz(15));
+console.log(fizzBuzz(0));
+console.log(fizzBuzz(5));
