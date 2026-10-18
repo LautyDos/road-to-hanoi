@@ -1,10 +1,7 @@
 function isLeapYear(year) {
   if (year % 4 === 0) {
     if (year % 100 === 0) {
-      if (year % 400 === 0) {
-        return true;
-      }
-      return false;
+      return year % 400 === 0;
     }
     return true;
   }
@@ -23,7 +20,7 @@ console.log(isLeapYear(2023));
 console.log("--------------------------");
 
 function isLeapYearOneExpression(year) {
-  return (year % 4 === 0 && year % 100 != 0) || year % 400 === 0;
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
 
 console.log(isLeapYearOneExpression(2000));
