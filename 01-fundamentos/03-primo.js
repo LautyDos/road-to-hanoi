@@ -1,13 +1,17 @@
 const isPrime = (n) => {
-  if (n <= 0 || n === 1) {
+  if (n <= 1) {
     return false;
   }
 
-  let cont = 0;
+  let cont = 1;
 
-  for (let i = 0; i <= n; i++) {
+  for (let i = 2; i <= n; i++) {
     if (n % i === 0) {
       cont++;
+    }
+
+    if (cont > 2) {
+      break;
     }
   }
 
