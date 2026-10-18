@@ -1,8 +1,6 @@
 function isPalindrome(inputText: string) {
   const normalizedText = normalizeText(inputText);
 
-  console.log(normalizedText);
-
   for (let i = 0; i < normalizedText.length / 2; i++) {
     if (normalizedText[i] !== normalizedText[normalizedText.length - 1 - i]) {
       return false;
@@ -13,7 +11,12 @@ function isPalindrome(inputText: string) {
 }
 
 function normalizeText(text: string) {
-  return text.replace(/[^a-zA-Z0-9ñÑ]/g, "").toUpperCase();
+  return text
+    .normalize("NFD")
+    .replace(/[\u0301\u0308]/g, "")
+    .normalize("NFC")
+    .replace(/[^a-zA-Z0-9ñÑ]/g, "")
+    .toUpperCase();
 }
 
 console.log(isPalindrome("Anita lava la tina")); // true
@@ -23,4 +26,4 @@ console.log(isPalindrome("")); // true
 console.log(isPalindrome("Was it a car or a cat I saw?")); // true
 console.log(isPalindrome("¿Acaso hubo búhos acá?")); // true
 console.log(isPalindrome("Sé verlas al revés")); // true
-console.log(isPalindrome("Aña")); // true
+console.log(isPalindrome("aña")); // true
