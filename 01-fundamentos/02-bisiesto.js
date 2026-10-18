@@ -22,20 +22,17 @@ console.log(isLeapYear(2023));
 
 console.log("--------------------------");
 
-function isLeapYearOneExpresion(year) {
-  if ((year % 4 === 0 && year % 100 != 0) || year % 400 === 0) {
-    return true;
-  }
-  return false;
+function isLeapYearOneExpression(year) {
+  return (year % 4 === 0 && year % 100 != 0) || year % 400 === 0;
 }
 
-console.log(isLeapYearOneExpresion(2000));
-console.log(isLeapYearOneExpresion(1900));
-console.log(isLeapYearOneExpresion(1990));
-console.log(isLeapYearOneExpresion(2004));
-console.log(isLeapYearOneExpresion(2024));
-console.log(isLeapYearOneExpresion(2028));
-console.log(isLeapYearOneExpresion(2023));
+console.log(isLeapYearOneExpression(2000));
+console.log(isLeapYearOneExpression(1900));
+console.log(isLeapYearOneExpression(1990));
+console.log(isLeapYearOneExpression(2004));
+console.log(isLeapYearOneExpression(2024));
+console.log(isLeapYearOneExpression(2028));
+console.log(isLeapYearOneExpression(2023));
 
 console.log("--------------------------");
 
@@ -44,13 +41,11 @@ function isLeapYear400First(year) {
     return true;
   }
 
-  if (year % 100 === 0 || year % 4 != 0) {
+  if (year % 100 === 0 || year % 4 !== 0) {
     return false;
   }
 
-  if (year % 4 === 0) {
-    return true;
-  }
+  return true;
 }
 
 console.log(isLeapYear400First(2000));
