@@ -1,8 +1,8 @@
-const reverseString = (string) => {
+const reverseString = (text) => {
   const reversed = [];
 
-  for (let i = string.split("").length - 1; i >= 0; i--) {
-    reversed.push(string.split("")[i]);
+  for (let i = text.length - 1; i >= 0; i--) {
+    reversed.push(text[i]);
   }
 
   return reversed.join("");
