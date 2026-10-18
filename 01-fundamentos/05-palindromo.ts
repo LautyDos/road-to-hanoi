@@ -13,7 +13,7 @@ function isPalindrome(inputText: string) {
 function normalizeText(text: string) {
   return text
     .normalize("NFD")
-    .replace(/[\u0301\u0308]/g, "")
+    .replace(/[\u0301\u0308]/g, "") //u0301 accent and u0308 umlaut.
     .normalize("NFC")
     .replace(/[^a-zA-Z0-9ñÑ]/g, "")
     .toUpperCase();
