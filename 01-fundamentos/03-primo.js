@@ -3,18 +3,13 @@ const isPrime = (n) => {
     return false;
   }
 
-  let flag = true;
-
-  for (let i = 2; i <= n; i++) {
+  for (let i = 2; i < n; i++) {
     if (n % i === 0) {
-      if (n !== i) {
-        flag = false;
-        break;
-      }
+      return false;
     }
   }
 
-  return flag;
+  return true;
 };
 
 console.log(isPrime(2)); // true
