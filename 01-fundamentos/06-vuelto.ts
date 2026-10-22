@@ -1,5 +1,5 @@
 function getChange(amount: number) {
-  const counting = <Record<string, number>>{
+  const counting = {
     1000: 0,
     500: 0,
     200: 0,
@@ -7,7 +7,7 @@ function getChange(amount: number) {
     50: 0,
     20: 0,
     10: 0,
-  };
+  } as Record<string, number>;
 
   if (amount % 10 !== 0 || amount < 0) {
     throw Error("Not valid number.");
