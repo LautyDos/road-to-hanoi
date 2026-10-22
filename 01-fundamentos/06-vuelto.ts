@@ -1,17 +1,26 @@
-function getChange(number: number) {
-  const counting = { 1000: 0, 500: 0, 200: 0, 100: 0, 50: 0, 20: 0, 10: 0 };
+function getChange(amount: number) {
+  const counting = <Record<string, number>>{
+    1000: 0,
+    500: 0,
+    200: 0,
+    100: 0,
+    50: 0,
+    20: 0,
+    10: 0,
+  };
 
-  if (number % 10 !== 0) {
+  if (amount % 10 !== 0 || amount < 0) {
     throw Error("Not valid number.");
   }
 
-  Object.keys(counting)
-    .reverse()
-    .forEach((key) => {
-      // @ts-ignore
-      counting[key] = Math.trunc(number / Number(key));
-      number = number % Number(key);
-    });
+  const values = Object.keys(counting)
+    .map((value) => Number(value))
+    .sort((a: number, b: number) => b - a);
+
+  values.forEach((key) => {
+    counting[String(key)] = Math.trunc(amount / key);
+    amount = amount % key;
+  });
 
   return Object.fromEntries(
     Object.entries(counting).filter(([key, value]) => {
