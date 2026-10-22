@@ -2,17 +2,15 @@ function getChange(number: number) {
   const counting = { 1000: 0, 500: 0, 200: 0, 100: 0, 50: 0, 20: 0, 10: 0 };
 
   if (number % 10 !== 0) {
-    return "Not valid number.";
+    throw Error("Not valid number.");
   }
 
   Object.keys(counting)
     .reverse()
     .forEach((key) => {
-      if (number >= Number(key)) {
-        // @ts-ignore
-        counting[key] = Math.trunc(number / Number(key));
-        number = number % Number(key);
-      }
+      // @ts-ignore
+      counting[key] = Math.trunc(number / Number(key));
+      number = number % Number(key);
     });
 
   return Object.fromEntries(
